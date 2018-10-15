@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>抽奖</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #333333;
+            text-align: center;
+        }
+        .main{
+            padding: 40% 0;
+        }
+        #who{
+            color: white;
+        }
+    </style>
+    <script>
+        // 声明变量
+        var luckyNumber;
+
+        //生成从minNum到maxNum的随机数
+        function randomNum(minNum, maxNum) {
+            switch (arguments.length) {
+                case 1:
+                    luckyNumber = parseInt(Math.random() * minNum + 1, 10);
+                    document.getElementById("who").innerHTML = luckyNumber;
+                    return parseInt(Math.random() * minNum + 1, 10);
+                    break;
+                case 2:
+                    luckyNumber = parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                    document.getElementById("who").innerHTML = luckyNumber;
+                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                    break;
+                default:
+                    document.getElementById("who").innerHTML = luckyNumber;
+                    return 0;
+                    break;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <p id="who">猜猜会是谁？</p>
+        <button onclick="randomNum(1,49)">点名</button>
+    </div>
+
+</body>
+</html>
